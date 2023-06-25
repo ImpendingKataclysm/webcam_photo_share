@@ -1,2 +1,4 @@
 # webcam_photo_share
- An app that starts the computer webcam, lets the user capture a photo and uploads the photo to the web and creates a sharable link.
+ An app that starts the computer webcam, lets the user capture a photo and 
+ uploads the photo to the web and creates a 
+ sharable link.
