@@ -42,13 +42,15 @@ class CameraScreen(Screen):
     def capture(self):
         """
         Captures the current frame of the webcam recording and saves it as a
-        PNG image file under the current timestamp.
+        PNG image file under the current timestamp, then displays the image
+        Screen where the user can generate a shareable link.
         :return:
         """
         current_time = time.strftime("%Y-%m-%d-%H-%M-%S")
         file_path = f"files/{current_time}.png"
         camera = self.ids.camera
         camera.export_to_png(file_path)
+        self.manager.current = 'image_screen'
 
 
 class ImageScreen(Screen):
