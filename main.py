@@ -1,3 +1,5 @@
+import time
+
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
@@ -38,7 +40,15 @@ class CameraScreen(Screen):
         camera.texture = None
 
     def capture(self):
-        pass
+        """
+        Captures the current frame of the webcam recording and saves it as a
+        PNG image file under the current timestamp.
+        :return:
+        """
+        current_time = time.strftime("%Y-%m-%d-%H-%M-%S")
+        file_path = f"files/{current_time}.png"
+        camera = self.ids.camera
+        camera.export_to_png(file_path)
 
 
 class ImageScreen(Screen):
