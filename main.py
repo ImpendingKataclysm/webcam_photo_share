@@ -29,11 +29,12 @@ class CameraScreen(Screen):
         :return:
         """
         camera = self.ids.camera
-        button = self.ids.camera_btn
+        camera.index = 0
         camera.opacity = 1
         camera.play = True
-        button.text = 'Stop Camera'
         camera.texture = camera._camera.texture
+        button = self.ids.camera_btn
+        button.text = 'Stop Camera'
 
     def stop(self):
         """
@@ -44,6 +45,7 @@ class CameraScreen(Screen):
         camera = self.ids.camera
         button = self.ids.camera_btn
         camera.play = False
+        camera.index = -1
         camera.opacity = 0
         button.text = 'Start Camera'
         camera.texture = None
@@ -60,6 +62,7 @@ class CameraScreen(Screen):
         self.file_path = f"files/{current_time}.png"
         camera = self.ids.camera
         camera.export_to_png(self.file_path)
+        camera.index = -1
 
         # Display image screen with captured image
         self.manager.current = 'image_screen'
@@ -72,6 +75,7 @@ class ImageScreen(Screen):
     Kivy Screen for displaying the image captured from the user's webcam and
     generating a shareable link to it.
     """
+
     def __init__(self, **kw):
         super().__init__(**kw)
         self.url = None
