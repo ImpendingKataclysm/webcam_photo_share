@@ -1,35 +1,39 @@
+<BasicGrid@GridLayout>
+    cols: 1
+    padding: 10
+    spacing: 10
+
+
+<StyledBtn@Button>
+    background_normal: 'images/normal.png'
+    background_down: 'images/down.png'
+
 <CameraScreen>:
-    GridLayout:
-        cols: 1
-        padding: 10
-        spacing: 10
+    BasicGrid:
         Camera:
             id: camera
             resolution: (640, 480)
             play: False
             size_hint_y: 0.8
-        Button:
+        StyledBtn:
             id: camera_btn
             text: 'Start Camera'
+            size_hint_y: 0.1
             on_press: root.start() if root.ids.camera.play == False else root.stop()
-            size_hint_y: 0.1
-        Button:
+        StyledBtn:
             text: 'Capture'
-            on_press: root.capture()
             size_hint_y: 0.1
+            on_press: root.capture()
 
 <ImageScreen>
-    GridLayout:
-        cols: 1
-        padding: 10
-        spacing: 10
+    BasicGrid:
         Image:
             id: img
             size_hint_y: 0.7
-        Button:
+        StyledBtn:
             text: 'Create shareable link'
-            on_press: root.create_link()
             size_hint_y: 0.1
+            on_press: root.create_link()
         Label:
             text: ''
             id: link
@@ -37,10 +41,10 @@
         GridLayout:
             cols: 2
             size_hint_y: 0.1
-            Button:
+            StyledBtn:
                 text: 'Copy Link'
                 on_press: root.copy_link()
-            Button:
+            StyledBtn:
                 text: 'Open Link'
                 on_press: root.open_link()
 
