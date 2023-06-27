@@ -15,6 +15,7 @@
             resolution: (640, 480)
             play: False
             size_hint_y: 0.8
+            opacity: 0
         StyledBtn:
             id: camera_btn
             text: 'Start Camera'
@@ -49,6 +50,12 @@
                 on_press: root.open_link()
 
 <RootWidget>
+    canvas.before:
+        Color:
+            rgba: (0.6, 0.5, 0.7, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
     CameraScreen:
         id: camera_screen
         name: 'camera_screen'

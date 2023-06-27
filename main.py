@@ -30,6 +30,7 @@ class CameraScreen(Screen):
         """
         camera = self.ids.camera
         button = self.ids.camera_btn
+        camera.opacity = 1
         camera.play = True
         button.text = 'Stop Camera'
         camera.texture = camera._camera.texture
@@ -43,6 +44,7 @@ class CameraScreen(Screen):
         camera = self.ids.camera
         button = self.ids.camera_btn
         camera.play = False
+        camera.opacity = 0
         button.text = 'Start Camera'
         camera.texture = None
 
